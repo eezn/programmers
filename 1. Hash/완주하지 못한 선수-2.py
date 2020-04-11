@@ -1,5 +1,17 @@
 # Hash lv1 완주하지 못한 선수
+# Hash : O(1) - O(n)
+# Hash Collision
+
+# Dictionary : key-value (associative array)
+
+# 1 <= len(participant) <= 100_000
+# len(completion) = lens(participant) - 1
+# duplicate element
 
 def solution(participant, completion):
-    answer = ''
-    return answer
+    participant.sort() # nlog(n)
+    completion.sort() # nlog(n)
+    for p, c in zip(participant, completion):
+        if p != c:
+            return p
+    return participant[-1]
